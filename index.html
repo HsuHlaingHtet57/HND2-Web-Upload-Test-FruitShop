@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Seasonal Fruit Shop</title>
+ <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Fresh Harvest</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" data-page="home" class="active">Home</a></li>
+                    <li><a href="#products" data-page="products">Products</a></li>
+                    <li><a href="#reviews" data-page="reviews">Reviews</a></li>
+                    <li><a href="#about-section" data-page="about">About Us</a></li>
+                    <li><a href="#contact-section" data-page="contact">Contact Us</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    <div class="cart-icon" onclick="toggleCart()">
+    <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="Cart"> 
+      <div class="cart-count" id="cart-count">0</div>
+    </div>
+  </header>
+  <!-- Home Page -->
+        <section id="home" class="page active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h2>Season's Freshest Fruits</h2>
+                    <p>Delivered straight to your doorstep</p>
+                    <a href="#products" class="btn" data-page="products">🛒 Shop Now</a>
+                </div>
+            </div>
+        </section>
+        <!-- Home page end -->
+
+<h2 id="products">Currently in Season</h2>
+<div class="search-bar text-center" style="margin: 20px 0;">
+      <input type="text" id="productSearch"  placeholder="Search for a fruit..."/>
+</div>
+ 
+ <script>
+  document.getElementById('productSearch').addEventListener('input', function () {
+    const searchTerm = this.value.toLowerCase();
+    const products = document.querySelectorAll('.products .product');
+
+    products.forEach(product => {
+      const name = product.querySelector('h3').textContent.toLowerCase();
+      if (name.includes(searchTerm)) {
+        product.style.display = '';
+      } else {
+        product.style.display = 'none';
+      }
+    });
+  });
+</script>  
+
+  <div class="row">
+                <div class="col-lg-12">
+                    <div class="special-menu text-center">
+                        <div class="button-group filter-button-group">
+                            <button class="active" data-filter="*">All</button>
+                            <button data-filter=".top-featured">Top featured</button>
+                            <button data-filter=".best-seller">Best seller</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<section class="products">
+  <div class="product top-featured">
+    <img src="../project1/product/product-1.jpg" alt="Apple" />
+    <h3>Fresh Apples</h3>
+    <p>$2.99 / lb</p>
+    <button onclick="addToCart('Fresh Apples', 2.99)">Add to Cart</button>
+  </div>
+
+  <div class="product best-seller">
+    <img src="../project1/product/product-2.jpg" alt="Strawberries" />
+    <h3>Strawberries</h3>
+    <p>$3.49 / box</p>
+    <button onclick="addToCart('Strawberries', 3.49)">Add to Cart</button>
+  </div>
+
+  <div class="product top-featured best-seller">
+    <img src="../project1/product/product-3.jpg" alt="Mangoes" />
+    <h3>Ripe Mangoes</h3>
+    <p>$1.99 each</p>
+    <button onclick="addToCart('Ripe Mangoes', 1.99)">Add to Cart</button>
+  </div>
+
+  <div class="product top-featured">
+    <img src="../project1/product/product-4.jpg" alt="Blueberries" />
+    <h3>Fresh Blueberries</h3>
+    <p>$4.50 / pint</p>
+    <button onclick="addToCart('Fresh Blueberries', 4.50)">Add to Cart</button>
+  </div>
+
+  <div class="product best-seller">
+    <img src="../project1/product/product-5.jpg" alt="Peaches" />
+    <h3>Sweet Peaches</h3>
+    <p>$3.25 / lb</p>
+    <button onclick="addToCart('Sweet Peaches', 3.25)">Add to Cart</button>
+  </div>
+
+  <div class="product top-featured best-seller">
+    <img src="../project1/product/product-6.jpg" alt="Cherries" />
+    <h3>Fresh Cherries</h3>
+    <p>$5.99 / lb</p>
+    <button onclick="addToCart('Fresh Cherries', 5.99)">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <img src="../project1/product/product-7.jpg" alt="Pears" />
+    <h3>Juicy Pears</h3>
+    <p>$2.75 / lb</p>
+    <button onclick="addToCart('Juicy Pears', 2.75)">Add to Cart</button>
+  </div>
+
+  <div class="product best-seller">
+    <img src="../project1/product/product-8.jpg" alt="Grapes" />
+    <h3>Seedless Grapes</h3>
+    <p>$3.99 / lb</p>
+    <button onclick="addToCart('Seedless Grapes', 3.99)">Add to Cart</button>
+  </div>
+
+  <div class="product top-featured">
+    <img src="../project1/product/product-9.jpg" alt="Watermelon" />
+    <h3>Sweet Watermelon</h3>
+    <p>$0.79 / lb</p>
+    <button onclick="addToCart('Sweet Watermelon', 0.79)">Add to Cart</button>
+  </div>
+
+  <div class="product">
+    <img src="../project1/product/product-10.jpg" alt="Pineapple" />
+    <h3>Fresh Pineapple</h3>
+    <p>$3.99 each</p>
+    <button onclick="addToCart('Fresh Pineapple', 3.99)">Add to Cart</button>
+  </div>
+
+  <div class="product best-seller">
+    <img src="../project1/product/product-11.jpg" alt="Kiwis" />
+    <h3>Green Kiwis</h3>
+    <p>$1.49 each</p>
+    <button onclick="addToCart('Green Kiwis', 1.49)">Add to Cart</button>
+  </div>
+
+  <div class="product top-featured">
+    <img src="../project1/product/product-12.jpg" alt="Plums" />
+    <h3>Fresh Plums</h3>
+    <p>$2.99 / lb</p>
+    <button onclick="addToCart('Fresh Plums', 2.99)">Add to Cart</button>
+  </div>
+</section>
+
+<script>
+  const filterButtons = document.querySelectorAll('.filter-button-group button');
+  const products = document.querySelectorAll('.products .product');
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      const filterValue = button.getAttribute('data-filter');
+
+      products.forEach(product => {
+        if (filterValue === '*') {
+          product.style.display = 'block';
+        } else if (product.classList.contains(filterValue.slice(1))) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+
+<!-- review  -->
+ <section class="review-section" id="reviews">
+  <div class="review-header">
+    <h2>Customer Reviews</h2>
+    <p>See what our happy customers say!</p>
+  </div>
+
+ <div class="review-slider" id="reviewSlider">
+  <div class="review-card">
+    <img src="https://i.pravatar.cc/100?img=12" alt="Amanda" class="user-img">
+    <h4>Amanda T.</h4>
+    <div class="stars">★★★★★</div>
+    <p>"Absolutely love the strawberries. So fresh and flavorful!"</p>
+  </div>
+  <div class="review-card">
+    <img src="https://i.pravatar.cc/100?img=45" alt="Daniel" class="user-img">
+    <h4>Daniel R.</h4>
+    <div class="stars">★★★★☆</div>
+    <p>"Fast delivery and great quality. Will definitely reorder."</p>
+  </div>
+  <div class="review-card">
+    <img src="https://i.pravatar.cc/100?img=37" alt="Priya" class="user-img">
+    <h4>Priya D.</h4>
+    <div class="stars">★★★★★</div>
+    <p>"Best mangoes I’ve ever had! Sweet and juicy."</p>
+  </div>
+  <div class="review-card">
+    <img src="https://i.pravatar.cc/100?img=52" alt="Carlos" class="user-img">
+    <h4>Carlos M.</h4>
+    <div class="stars">★★★★★</div>
+    <p>"Excellent customer service and the apples were crisp and delicious."</p>
+  </div>
+</div>
+
+  
+<section class="review-section">
+  <form class="review-form" id="reviewForm">
+    <h3>Write a Review</h3>
+    <input type="text" name="name" required placeholder="Your name" />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your review..." required></textarea>
+
+    <div class="star-input">
+      <select name="rating" id="rating" required>
+        <option value="">Choose Rating:</option>
+        <option value="★★★★★">★★★★★</option>
+        <option value="★★★★☆">★★★★☆</option>
+        <option value="★★★☆☆">★★★☆☆</option>
+        <option value="★★☆☆☆">★★☆☆☆</option>
+        <option value="★☆☆☆☆">★☆☆☆☆</option>
+      </select>
+    </div>
+
+    <button type="submit">Submit Review</button>
+  </form>
+
+  <div class="review-slider" id="reviewSlider"></div>
+</section>
+
+<script>
+  document.getElementById('reviewForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = this.name.value.trim();
+    const email = this.email.value.trim(); 
+    const review = this.message.value.trim();
+    const rating = this.rating.value;
+
+    if (!name || !review || !rating) return;
+
+    const avatarId = Math.floor(Math.random() * 70) + 1;
+
+    const reviewCard = document.createElement('div');
+    reviewCard.className = 'review-card';
+    reviewCard.innerHTML = `
+      <img src="https://i.pravatar.cc/100?img=${avatarId}" class="user-img" alt="${name}'s avatar">
+      <h4>${name}</h4>
+      <div class="stars">${rating}</div>
+      <p>"${review}"</p>
+    `;
+
+    document.getElementById('reviewSlider').appendChild(reviewCard);
+
+    this.reset();
+    alert('Thank you for your review!');
+  });
+</script> 
+<!-- review end -->
+
+
+ <!-- About us -->
+       <section class="about-section" id="about-section">
+  <div class="about-container">
+    <div class="about-text">
+      <h2>About Us</h2>
+
+      <p align="left">
+        At <strong>Fresh Harvest</strong>, we believe in the power of nature's bounty.
+        Our mission is to bring you the freshest seasonal fruits, sourced directly
+        from sustainable farms. Every fruit in our store is handpicked to ensure
+        optimal ripeness, flavor, and nutrition.
+      </p>
+      <p align="left">
+        Founded in 2023, we started as a small local stand and have grown into an
+        online destination for fruit lovers everywhere. Whether you're stocking up
+        on sweet mangoes in summer or crisp apples in fall, Fresh Harvest is your
+        trusted partner for delicious, healthy choices.
+      </p>
+      <p align="left">
+        Thank you for supporting local farmers and choosing a healthier lifestyle
+        with us!
+      </p>
+    </div>
+    <div class="about-image">
+      <img src="../project1/product/season-fruits.jpg">
+    </div>
+  </div>
+</section>
+<!-- About us end -->
+
+
+<section class="contact-hero" id="contact-section">
+  <div class="contact-container">
+    <div class="contact-card">
+      <h2>Contact Us</h2>
+      <p>Have questions, feedback, or anything in your mind? Drop us a line — we’re happy to chat!</p>
+      <form id="messageForm">
+        <div class="form-group">
+          <input type="text" placeholder="Full Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Email Address" required>
+        </div>
+        <div class="form-group">
+          <textarea placeholder="Your Message..." required></textarea>
+        </div>
+        <button type="submit" class="send-btn">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+  document.getElementById('messageForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thanks! Your message has been sent.');
+    this.reset();
+  });
+</script>
+
+</section> 
+
+
+  <!-- Cart -->
+  <div id="cart-modal">
+    <h4 style="margin: 0 0 10px;">Your Cart</h4>
+    <ul id="cart-items"></ul>
+    <div class="total">Total: $<span id="cart-total">0.00</span></div>
+    <button class="checkout-btn" onclick="checkout()">Checkout</button>
+  </div>
+
+
+   <script>
+    let cartCount = 0;
+    let cartItems = [];
+
+    function addToCart(name, price) {
+      cartItems.push({ name, price });
+      cartCount = cartItems.length;
+      document.getElementById('cart-count').textContent = cartCount;
+    }
+
+
+    function toggleCart() {
+      const modal = document.getElementById('cart-modal');
+      const itemsList = document.getElementById('cart-items');
+      const totalElement = document.getElementById('cart-total');
+
+      itemsList.innerHTML = '';
+      let total = 0;
+
+      if (cartItems.length === 0) {
+        itemsList.innerHTML = '<li style="text-align:center; color:#777;">Cart is empty.</li>';
+      } else {
+        cartItems.forEach(item => {
+          const li = document.createElement('li');
+          li.innerHTML = `<span>${item.name}</span><span>$${item.price.toFixed(2)}</span>`;
+          itemsList.appendChild(li);
+          total += item.price;
+        });
+      }
+
+      totalElement.textContent = total.toFixed(2);
+      modal.style.display = (modal.style.display === 'none' || modal.style.display === '') ? 'block' : 'none';
+    }
+
+function checkout() {
+  if (!Array.isArray(cartItems) || cartItems.length === 0) {
+    alert('Your cart is empty.');
+    return;
+  }
+
+  const total = cartItems
+    .reduce((sum, item) => sum + parseFloat(item.price), 0)
+    .toFixed(2);
+
+  localStorage.setItem('cartItems', JSON.stringify(cartItems));
+  localStorage.setItem('cartTotal', total);
+
+  window.location.href = "checkout.html";
+}
+
+  </script>  
+
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <h3>Fresh Harvest</h3>
+      <p>Your seasonal fruit destination — fresh, local, and sustainable.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#about-section">About Us</a></li>
+        <li><a href="#contact-section">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <p>Email: info@freshharvest.com</p>
+      <p>Phone: +95 9123456789</p>
+      <p>Address: 123 Orchid Lane, Greenfield, AB</p>
+    </div>
+
+    <div class="footer-col">
+  <h4>Follow Us</h4>
+  <div class="social-grid">
+    <a href="#" aria-label="Facebook"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+    <a href="#" aria-label="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+    <a href="#" aria-label="Twitter"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+    <a href="#" aria-label="LinkedIn"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn"></a>
+    <a href="#" aria-label="YouTube"><img src="https://cdn-icons-png.flaticon.com/512/3670/3670147.png" alt="YouTube"></a>
+    <a href="#" aria-label="Pinterest"><img src="https://cdn-icons-png.flaticon.com/512/733/733646.png" alt="Pinterest"></a>
+    <a href="#" aria-label="TikTok"><img src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png" alt="TikTok"></a>
+    <a href="#" aria-label="Snapchat"><img src="https://cdn-icons-png.flaticon.com/512/733/733616.png" alt="Snapchat"></a>
+  </div>
+</div>
+
+
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2025 Fresh Harvest. All rights reserved.</p>
+  </div>
+</footer>
+
+
+
+
+</body>
+</html>
